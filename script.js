@@ -9,10 +9,9 @@ fetch('data.json')
         const elements = {
             name: data.name || '',
             title: data.title || '',
+            company: data.company || '',
             phone: data.phone || '',
             email: data.email || '',
-            email2: data.email2 || '',
-            company: data.company || '',
             address: data.address || '',
             website: data.website || '',
             whatsapp: data.whatsapp || ''
@@ -20,12 +19,20 @@ fetch('data.json')
         Object.keys(elements).forEach(key => {
             const element = document.getElementById(key);
             if (element) {
-                if (key === 'email' || key === 'email2') {
+                if (key === 'email') {
                     element.href = `mailto:${elements[key]}`;
                     element.textContent = elements[key];
                 } else if (key === 'website') {
-                    element.href = elements[key];
-                    element.textContent = elements[key];
+                let url = elements[key].trim();
+
+                // لو مفيش http أو https ضيف https://
+                if (url && !url.startsWith("http://") && !url.startsWith("https://")) {
+                    url = "https://" + url;
+                }
+
+                element.href = url;
+                element.target = "_blank";
+                element.textContent = url.replace(/^https?:\/\//, '');
                 } else if (key === 'whatsapp') {
                     element.href = `https://wa.me/${elements[key]}`;
                 } else {
@@ -33,7 +40,6 @@ fetch('data.json')
                 }
             }
         });
-        document.getElementById('email2-container').style.display = elements.email2 ? 'flex' : 'none';
         adjustElementsForScreenSize();
         window.addEventListener('resize', adjustElementsForScreenSize);
         window.downloadVCard = function() {
@@ -45,7 +51,6 @@ fetch('data.json')
                 `TITLE:${elements.title}`,
                 `TEL;TYPE=CELL:${elements.phone}`,
                 `EMAIL;TYPE=WORK:${elements.email}`,
-                elements.email2 && `EMAIL;TYPE=WORK:${elements.email2}`,
                 elements.company && `ORG:${elements.company}`,
                 elements.address && `ADR;TYPE=WORK:;;${elements.address.replace(/,/g, ';')}`,
                 elements.website && `URL:${elements.website}`,

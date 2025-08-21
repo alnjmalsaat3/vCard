@@ -15,26 +15,23 @@
                 <i class="fas fa-moon" id="dark-mode-icon"></i>
             </button>
             <div class="logo-container">
-                <img src="logo.png" alt="Logo" class="profile-img" id="logo">
+                <img src="MyPhoto.jpg" alt="Logo" class="profile-img" id="logo">
             </div>
             <h1 id="name"></h1>
             <h2 id="title"></h2>
+
             <div class="contact-details">
                 <div class="detail-item">
                     <i class="fas fa-phone" aria-hidden="true"></i>
                     <span id="phone" class="value"></span>
                 </div>
                 <div class="detail-item">
-                    <i class="fas fa-envelope" aria-hidden="true"></i>
-                    <span><a id="email" href="mailto:" target="_blank"></a></span>
-                </div>
-                <div class="detail-item" id="email2-container" style="display: none;">
-                    <i class="fas fa-envelope" aria-hidden="true"></i>
-                    <span><a id="email2" href="mailto:" target="_blank"></a></span>
-                </div>
-                <div class="detail-item">
                     <i class="fas fa-briefcase" aria-hidden="true"></i>
                     <span id="company" class="value"></span>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    <span><a id="email" href="mailto:" target="_blank"></a></span>
                 </div>
                 <div class="detail-item">
                     <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
@@ -46,22 +43,16 @@
                 </div>
                 <div class="detail-item">
                     <i class="fab fa-whatsapp" aria-hidden="true"></i>
-                    <span><a id="whatsapp" href="#" target="_blank">تواصل</a></span>
+                    <span><a id="whatsapp" href="#" target="_blank">Contact Me</a></span>
                 </div>
             </div>
-            <button class="vcard-btn" onclick="downloadVCard()">تحميل VCard</button>
+            <button class="vcard-btn" onclick="downloadVCard()">Download VCard</button>
+            <model-viewer src="name.glb" alt="A 3D model of a test" auto-rotate camera-controls style="width: 100%; height: 250px;"></model-viewer>
         </div>
     </div>
     <script src="https://kit.fontawesome.com/a22154ddf9.js" crossorigin="anonymous"></script>
     <script src="script.js"></script>
-    <script>
-        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-      </script>
-      <script defer src="/_vercel/insights/script.js"></script>
-      <script>
-        window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
-      </script>
-      <script defer src="/_vercel/speed-insights/script.js"></script>
+    
     
 </body>
 </html>

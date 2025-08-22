@@ -10,70 +10,72 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <div class="card">
+  
+  <div class="main-wrapper" id="main-wrapper">
+    
+    <div class="card profile-card" id="profile-card">
       <model-viewer
         class="name-3d-model"
         src="modyi3d.glb"
         alt="A 3D model of the name Modyi3d"
-        auto-rotate
-        camera-controls
-        disable-pan
-        shadow-intensity="1">
+        camera-controls disable-pan shadow-intensity="1"
+        min-camera-orbit="auto 75deg auto" max-camera-orbit="auto 105deg auto"
+        min-field-of-view="25deg" max-field-of-view="35deg"
+        render-scale="2">
       </model-viewer>
 
       <button class="dark-mode-toggle" onclick="toggleDarkMode()">
         <i class="fas fa-moon" id="dark-mode-icon"></i>
       </button>
+      <button class="lang-toggle" onclick="toggleLanguage()" id="lang-toggle-btn">English</button>
 
       <div class="logo-container">
         <img src="MyPhoto.jpg" alt="Logo" class="profile-img" id="logo">
       </div>
       
-      <!-- تم حذف h1 و h2 من هنا -->
+      <div class="description-section" id="description-container">
+        <p class="description-text" id="description"></p>
+        <i class="fas fa-chevron-down description-toggle" onclick="toggleDescription()"></i>
+      </div>
 
       <div class="contact-details">
-        <div class="detail-item">
-          <i class="fas fa-phone" aria-hidden="true"></i>
-          <span id="phone" class="value"></span>
-        </div>
-        <div class="detail-item">
-          <i class="fas fa-briefcase" aria-hidden="true"></i>
-          <span id="company" class="value"></span>
-        </div>
-        <div class="detail-item">
-          <i class="fas fa-envelope" aria-hidden="true"></i>
-          <span><a id="email" href="mailto:" target="_blank"></a></span>
-        </div>
-        <div class="detail-item">
-          <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-          <span id="address" class="value"></span>
-        </div>
+        <div class="detail-item"><i class="fas fa-phone" aria-hidden="true"></i><span class="value" id="phone"></span></div>
+        <div class="detail-item"><i class="fas fa-briefcase" aria-hidden="true"></i><span class="value" id="company"></span></div>
+        <div class="detail-item"><i class="fas fa-envelope" aria-hidden="true"></i><span><a id="email" href="mailto:" target="_blank"></a></span></div>
+        <div class="detail-item"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span class="value" id="address"></span></div>
       </div>
 
       <div class="social-media-section">
         <div class="social-grid">
-          <a id="whatsapp-link" href="#" target="_blank" class="social-item">
-            <i class="fab fa-whatsapp"></i>
-            <span>WhatsApp</span>
-          </a>
-          <a id="linkedin-link" href="#" target="_blank" class="social-item">
-            <i class="fab fa-linkedin-in"></i>
-            <span>LinkedIn</span>
-          </a>
-          <a id="instagram-link" href="#" target="_blank" class="social-item">
-            <i class="fab fa-instagram"></i>
-            <span>Instagram</span>
-          </a>
-          <a id="behance-link" href="#" target="_blank" class="social-item">
-            <i class="fab fa-behance"></i>
-            <span>Behance</span>
-          </a>
+          <a id="whatsapp-link" href="#" target="_blank" class="social-item"><i class="fab fa-whatsapp"></i><span>WhatsApp</span></a>
+          <a id="linkedin-link" href="#" target="_blank" class="social-item"><i class="fab fa-linkedin-in"></i><span>LinkedIn</span></a>
+          <a id="instagram-link" href="#" target="_blank" class="social-item"><i class="fab fa-instagram"></i><span>Instagram</span></a>
+          <a id="behance-link" href="#" target="_blank" class="social-item"><i class="fab fa-behance"></i><span>Behance</span></a>
         </div>
       </div>
-
-      <button class="vcard-btn" onclick="downloadVCard()">Download VCard</button>
+      
+      <div class="action-buttons">
+        <button class="action-btn" onclick="toggleGallery()" id="gallery-btn">المعرض</button>
+        <button class="action-btn" onclick="downloadVCard()" id="vcard-btn">حفظ جهة الاتصال</button>
+      </div>
     </div>
+
+    <div class="card gallery-card" id="gallery-card">
+        <div class="gallery-card-content">
+            <div class="gallery-header">
+                <h3 class="gallery-title" id="gallery-title">أعمالي</h3>
+                <button class="close-gallery-btn" onclick="toggleGallery()">&times;</button>
+            </div>
+            <!-- ======== تم تفريغ هذا القسم. سيقوم JavaScript بملئه تلقائيًا ======== -->
+            <div class="image-grid">
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+    <img src="" alt="Enlarged gallery image" class="lightbox-content" id="lightbox-img">
   </div>
 
   <script src="https://kit.fontawesome.com/a22154ddf9.js" crossorigin="anonymous"></script>

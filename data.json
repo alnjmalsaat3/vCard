@@ -1,13 +1,32 @@
 {
+  "en": {
     "name": "Mohamed Ismail",
     "title": "modyi3d",
-    "phone": "201500222122+",
+    "description": "Creative 3D Generalist with 5+ years of experience producing high-end visuals and animations.\nTrusted by over 15 clients in the Gulf region for detailed product renders and motion design projects.",
+    "company": "3D Generalist",
+    "saveContact": "Save Contact",
+    "gallery": "Gallery",
+    "galleryTitle": "My Work",
+    "lang_toggle": "عربي"
+  },
+  "ar": {
+    "name": "محمد إسماعيل",
+    "title": "modyi3d",
+    "description": "مصمم ثلاثي الأبعاد بخبرة تزيد عن 5 سنوات في إنتاج مرئيات ورسوم متحركة عالية الجودة.\nنلت ثقة أكثر من 15 عميلًا في منطقة الخليج لتقديم تصاميم منتجات دقيقة ومشاريع موشن ديزاين متكاملة.",
+    "company": "مصمم ثلاثي الأبعاد",
+    "saveContact": "حفظ جهة الاتصال",
+    "gallery": "المعرض",
+    "galleryTitle": "أعمالي",
+    "lang_toggle": "English"
+  },
+  "shared_data": {
+    "phone": "+201500222122",
     "email": "modyi3d@gmail.com",
-    "company": "3D Designer",
     "address": "Egypt, Giza",
     "website": "modyi3d.vercel.app",
     "whatsapp": "201500222122",
     "linkedin": "modyi3d",
     "instagram": "modyi3d",
     "behance": "modyi3d"
+  }
 }

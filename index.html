@@ -1,58 +1,86 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modyi3d</title>
-    <link rel="stylesheet" href="styles.css">
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Modyi3d</title>
+
+  <link rel="stylesheet" href="styles.css" />
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <div class="card">
-            <button class="dark-mode-toggle" onclick="toggleDarkMode()">
-                <i class="fas fa-moon" id="dark-mode-icon"></i>
-            </button>
-            <div class="logo-container">
-                <img src="MyPhoto.jpg" alt="Logo" class="profile-img" id="logo">
-            </div>
-            <h1 id="name"></h1>
-            <h2 id="title"></h2>
+  <div class="container">
+    <div class="card">
+      <button class="dark-mode-toggle" onclick="toggleDarkMode()">
+        <i class="fas fa-moon" id="dark-mode-icon"></i>
+      </button>
 
-            <div class="contact-details">
-                <div class="detail-item">
-                    <i class="fas fa-phone" aria-hidden="true"></i>
-                    <span id="phone" class="value"></span>
-                </div>
-                <div class="detail-item">
-                    <i class="fas fa-briefcase" aria-hidden="true"></i>
-                    <span id="company" class="value"></span>
-                </div>
-                <div class="detail-item">
-                    <i class="fas fa-envelope" aria-hidden="true"></i>
-                    <span><a id="email" href="mailto:" target="_blank"></a></span>
-                </div>
-                <div class="detail-item">
-                    <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-                    <span id="address" class="value"></span>
-                </div>
-                <div class="detail-item website-item">
-                    <i class="fas fa-globe" aria-hidden="true"></i>
-                    <span><a id="website" href="#" target="_blank"></a></span>
-                </div>
-                <div class="detail-item">
-                    <i class="fab fa-whatsapp" aria-hidden="true"></i>
-                    <span><a id="whatsapp" href="#" target="_blank">Contact Me</a></span>
-                </div>
-            </div>
-            <button class="vcard-btn" onclick="downloadVCard()">Download VCard</button>
-            <model-viewer src="name.glb" alt="A 3D model of a test" auto-rotate camera-controls style="width: 100%; height: 250px;"></model-viewer>
+      <div class="logo-container">
+        <img src="MyPhoto.jpg" alt="Logo" class="profile-img" id="logo">
+      </div>
+
+      <!-- ================== هنا التعديل ================== -->
+      <!-- تم حذف h1 ووضع الـ model-viewer مكانه -->
+      <model-viewer
+        class="name-3d-model"
+        src="modyi3d.glb"
+        alt="A 3D model of the name Modyi3d"
+        auto-rotate
+        disable-zoom
+        shadow-intensity="1">
+      </model-viewer>
+      <!-- ================== نهاية التعديل ================== -->
+      
+      <h2 id="title"></h2>
+
+      <div class="contact-details">
+        <div class="detail-item">
+          <i class="fas fa-phone" aria-hidden="true"></i>
+          <span id="phone" class="value"></span>
         </div>
+        <div class="detail-item">
+          <i class="fas fa-briefcase" aria-hidden="true"></i>
+          <span id="company" class="value"></span>
+        </div>
+        <div class="detail-item">
+          <i class="fas fa-envelope" aria-hidden="true"></i>
+          <span><a id="email" href="mailto:" target="_blank"></a></span>
+        </div>
+        <div class="detail-item">
+          <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+          <span id="address" class="value"></span>
+        </div>
+      </div>
+
+      <div class="social-media-section">
+        <div class="social-grid">
+          <a id="whatsapp-link" href="#" target="_blank" class="social-item">
+            <i class="fab fa-whatsapp"></i>
+            <span>WhatsApp</span>
+          </a>
+          <a id="linkedin-link" href="#" target="_blank" class="social-item">
+            <i class="fab fa-linkedin-in"></i>
+            <span>LinkedIn</span>
+          </a>
+          <a id="instagram-link" href="#" target="_blank" class="social-item">
+            <i class="fab fa-instagram"></i>
+            <span>Instagram</span>
+          </a>
+          <a id="behance-link" href="#" target="_blank" class="social-item">
+            <i class="fab fa-behance"></i>
+            <span>Behance</span>
+          </a>
+        </div>
+      </div>
+
+      <button class="vcard-btn" onclick="downloadVCard()">Download VCard</button>
+
+      <!-- تم نقل الـ model-viewer من هنا -->
     </div>
-    <script src="https://kit.fontawesome.com/a22154ddf9.js" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
-    
-    
+  </div>
+
+  <script src="https://kit.fontawesome.com/a22154ddf9.js" crossorigin="anonymous"></script>
+  <script src="script.js"></script>
 </body>
 </html>

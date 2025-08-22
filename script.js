@@ -6,9 +6,8 @@ fetch('data.json')
     return response.json();
   })
   .then(data => {
+    // تم حذف name و title لأن العناصر المقابلة لها تم حذفها
     const elements = {
-      name: data.name || '',
-      title: data.title || '',
       company: data.company || '',
       phone: data.phone || '',
       email: data.email || '',
@@ -61,17 +60,14 @@ fetch('data.json')
       behanceLink.href = elements.behance.startsWith('http') ? elements.behance : `https://behance.net/${elements.behance}`;
     }
 
-    adjustElementsForScreenSize();
-    window.addEventListener('resize', adjustElementsForScreenSize);
-
-    // vCard
+    // vCard (يستخدم الاسم والمسمى الوظيفي من data.json مباشرة)
     window.downloadVCard = function() {
       const vCardData = [
         'BEGIN:VCARD',
         'VERSION:3.0',
-        `N:${(elements.name || '').split(' ').reverse().join(';')}`,
-        `FN:${elements.name}`,
-        `TITLE:${elements.title}`,
+        `N:${(data.name || '').split(' ').reverse().join(';')}`,
+        `FN:${data.name}`,
+        `TITLE:${data.title}`,
         `TEL;TYPE=CELL:${elements.phone}`,
         `EMAIL;TYPE=WORK:${elements.email}`,
         elements.company && `ORG:${elements.company}`,
@@ -100,7 +96,7 @@ fetch('data.json')
         ...document.querySelectorAll('.social-item'),
         document.querySelector('.vcard-btn'),
         document.querySelector('.dark-mode-toggle'),
-        ...document.querySelectorAll('h1, h2')
+        // تم حذف h1 و h2 من هنا
       ].filter(Boolean);
 
       elementsToToggle.forEach(el => el.classList.toggle('light-mode'));
@@ -114,16 +110,3 @@ fetch('data.json')
     console.error('خطأ في تحميل البيانات:', error);
     alert('حدث خطأ في تحميل البيانات، يرجى التحقق من اتصال الإنترنت أو ملف data.json');
   });
-
-function adjustElementsForScreenSize() {
-  const detailItems = document.querySelectorAll('.detail-item');
-  const screenWidth = window.innerWidth;
-
-  if (screenWidth <= 320) {
-    detailItems.forEach(item => { item.style.padding = '6px 6px'; });
-  } else if (screenWidth <= 480) {
-    detailItems.forEach(item => { item.style.padding = '8px 8px'; });
-  } else {
-    detailItems.forEach(item => { item.style.padding = '8px'; });
-  }
-}

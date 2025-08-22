@@ -12,6 +12,16 @@
 <body>
   <div class="container">
     <div class="card">
+      <model-viewer
+        class="name-3d-model"
+        src="modyi3d.glb"
+        alt="A 3D model of the name Modyi3d"
+        auto-rotate
+        camera-controls
+        disable-pan
+        shadow-intensity="1">
+      </model-viewer>
+
       <button class="dark-mode-toggle" onclick="toggleDarkMode()">
         <i class="fas fa-moon" id="dark-mode-icon"></i>
       </button>
@@ -19,20 +29,8 @@
       <div class="logo-container">
         <img src="MyPhoto.jpg" alt="Logo" class="profile-img" id="logo">
       </div>
-
-      <!-- ================== هنا التعديل ================== -->
-      <!-- تم حذف h1 ووضع الـ model-viewer مكانه -->
-      <model-viewer
-        class="name-3d-model"
-        src="modyi3d.glb"
-        alt="A 3D model of the name Modyi3d"
-        auto-rotate
-        disable-zoom
-        shadow-intensity="1">
-      </model-viewer>
-      <!-- ================== نهاية التعديل ================== -->
       
-      <h2 id="title"></h2>
+      <!-- تم حذف h1 و h2 من هنا -->
 
       <div class="contact-details">
         <div class="detail-item">
@@ -75,8 +73,6 @@
       </div>
 
       <button class="vcard-btn" onclick="downloadVCard()">Download VCard</button>
-
-      <!-- تم نقل الـ model-viewer من هنا -->
     </div>
   </div>
 

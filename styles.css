@@ -50,6 +50,7 @@ body.light-mode {
   box-shadow: 0 10px 30px -15px rgba(0,0,0,0.1);
 }
 
+/* Banner */
 .card::before {
   content: "";
   position: absolute;
@@ -63,40 +64,57 @@ body.light-mode {
   background-position: center 35%;
   border-top-left-radius: var(--radius);
   border-top-right-radius: var(--radius);
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
   z-index: 0;
 }
 
-/* Dark mode toggle */
+/* الموديل 3D */
+.name-3d-model {
+  position: absolute;
+  top: -22px;
+  left: 0;
+  width: 100%;
+  height: 130px; 
+  z-index: 1;
+  cursor: grab;
+  --model-viewer-background-color: transparent;
+  transform: scale(2.1);
+}
+
+/* زر الدارك مود (تم تصغيره) */
 .dark-mode-toggle {
   position: absolute;
-  top: 85px;
-  left: 0px;
-  background: transparent;
-  border: none;
-  color: #64ffda;
-  font-size: 1.2rem;
-  cursor: pointer;
-  padding: 8px;
+  top: 10px;
+  left: 10px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
+  color: #64ffda;
+  font-size: 1rem;
+  cursor: pointer;
+  z-index: 3;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: all 0.3s ease;
-  z-index: 2;
+  background-color: rgba(23, 42, 69, 0.7);
+  backdrop-filter: blur(4px);
 }
 
 .dark-mode-toggle.light-mode {
   color: #2b6cb0;
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
-/* Logo on top of banner */
+/* الصورة الشخصية */
 .logo-container {
   position: relative;
   width: 72px;
   height: 72px;
-  margin: 45px auto 14px;
+  margin: 60px auto 14px; 
   border-radius: 50%;
   overflow: hidden;
-  z-index: 1;
+  z-index: 2;
 }
 
 .profile-img {
@@ -104,91 +122,172 @@ body.light-mode {
   height: 100%;
   object-fit: contain;
   display: block;
-  transition: all 0.3s ease;
-  position: relative;
-  border-radius: 50%;
 }
 
-/* ================== هنا التعديل ================== */
-/* تنسيقات جديدة للموديل ثلاثي الأبعاد */
-.name-3d-model {
-  width: 100%;
-  /* اضبط الارتفاع ليناسب حجم الموديل، ابدأ بـ 50px وجرّب */
-  height: 50px; 
-  cursor: grab;
-  margin-bottom: 5px; /* مسافة بينه وبين العنوان h2 */
-  --model-viewer-background-color: transparent; /* خلفية شفافة */
-}
-/* تم حذف تنسيقات h1 من هنا */
-/* ================== نهاية التعديل ================== */
-
-h2 {
-  font-size: 1rem;
-  color: #8892b0;
-  margin-bottom: 15px;
-  text-align: center;
-}
-
-h2.light-mode { color: #4a5568; }
-
-/* باقي الكود كما هو بدون تغيير */
 /* Details */
-.contact-details { display: flex; flex-direction: column; gap: 8px; }
-.detail-item { background: #233554; border-radius: 10px; padding: 8px; display: flex; flex-direction: column; align-items: center; text-align: center; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); transition: all 0.3s ease; margin-bottom: 8px; max-width: 100%; }
-.detail-item:hover { transform: translateY(-3px); background: #2d4a6f; }
-.detail-item.light-mode { background: #edf2f7; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); color: #2d3748; }
-.detail-item.light-mode:hover { background: #e2e8f0; }
-.detail-item .value, .detail-item a { flex-grow: 1; text-align: center; font-size: 0.8rem; color: #ccd6f6; line-height: 1.5; margin-top: 5px; width: 100%; word-break: break-word; }
-.detail-item.light-mode .value, .detail-item.light-mode a { color: #2d3748; }
-.detail-item a { color: #64ffda; text-decoration: none; }
-.detail-item.light-mode a { color: #2b6cb0; }
-.detail-item a:hover { text-decoration: underline; }
-.detail-item i { font-size: 1rem; color: #64ffda; padding: 5px; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; margin-bottom: 3px; background: transparent; }
-.detail-item:hover i { transform: scale(1.1); color: #64ffda; }
-.detail-item.light-mode i { color: #2b6cb0; background: transparent; }
-/* Social */
-.social-media-section { margin-top: 15px; margin-bottom: 15px; }
-.social-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-.social-item { background: #233554; border-radius: 10px; padding: 12px 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-decoration: none; color: #ccd6f6; transition: all 0.3s ease; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); min-height: 70px; }
-.social-item:hover { transform: translateY(-3px); background: #2d4a6f; }
-.social-item.light-mode { background: #edf2f7; color: #2d3748; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); }
-.social-item.light-mode:hover { background: #e2e8f0; }
-.social-item i { font-size: 1.8rem; color: #64ffda; margin-bottom: 5px; transition: all 0.3s ease; }
-.social-item.light-mode i { color: #2b6cb0; }
-.social-item:hover i { transform: scale(1.1); color: #64ffda; }
-.social-item.light-mode:hover i { color: #2b6cb0; }
-.social-item span { font-size: 0.75rem; text-align: center; color: #64ffda; font-weight: 500; }
-.social-item.light-mode span { color: #2b6cb0; }
-.social-item:hover span { text-decoration: none; }
-/* Button */
-.vcard-btn { background: linear-gradient(135deg, #64ffda 0%, #233554 100%); border: 1px solid #64ffda; padding: 10px 20px; border-radius: 25px; color: #fff; font-size: 1rem; cursor: pointer; width: 100%; margin-top: 15px; transition: all 0.3s ease; }
-.vcard-btn.light-mode { background: linear-gradient(135deg, #2b6cb0 0%, #edf2f7 100%); border-color: #2b6cb0; }
-.vcard-btn:hover { opacity: 0.9; transform: translateY(-2px); }
-/* Responsive */
-@media (max-width: 480px) {
-  .container { max-width: 280px; padding: 8px; }
-  .card { padding: 12px 10px; --pad: 10px; }
-  .card::before { top: calc(-1 * var(--pad)); left: calc(-1 * var(--pad)); right: calc(-1 * var(--pad)); height: 95px; }
-  .logo-container { width: 64px; height: 64px; margin: 6px auto 12px; }
-  .logo-container img { object-fit: contain; }
-  /* تعديل ارتفاع الموديل للشاشات الأصغر */
-  .name-3d-model { height: 40px; }
-  h2 { font-size: 0.9rem; }
-  .detail-item { padding: 6px 8px; margin-bottom: 6px; }
-  .detail-item i { font-size: 0.9rem; width: 20px; height: 20px; }
-  .social-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
-  .social-item { padding: 10px 6px; min-height: 60px; }
-  .social-item i { font-size: 1.5rem; }
-  .social-item span { font-size: 0.7rem; }
-  .vcard-btn { padding: 8px 15px; font-size: 0.9rem; }
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 15px; /* مسافة إضافية بعد حذف h2 */
 }
-@media (max-width: 320px) {
-  .container { max-width: 250px; }
-  /* تعديل ارتفاع الموديل للشاشات الأصغر جدًا */
-  .name-3d-model { height: 35px; }
-  h2 { font-size: 0.85rem; }
-  .social-item { padding: 8px 5px; min-height: 55px; }
-  .social-item i { font-size: 1.3rem; }
-  .social-item span { font-size: 0.65rem; }
-  .card::before { height: 88px; }
+
+.detail-item {
+  background: #233554;
+  border-radius: 10px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  margin-bottom: 8px;
+  max-width: 100%;
+}
+
+.detail-item:hover {
+  transform: translateY(-3px);
+  background: #2d4a6f;
+}
+
+.detail-item.light-mode {
+  background: #edf2f7;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  color: #2d3748;
+}
+
+.detail-item.light-mode:hover { background: #e2e8f0; }
+
+.detail-item .value,
+.detail-item a {
+  flex-grow: 1;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #ccd6f6;
+  line-height: 1.5;
+  margin-top: 5px;
+  width: 100%;
+  word-break: break-word;
+}
+
+.detail-item.light-mode .value,
+.detail-item.light-mode a { color: #2d3748; }
+
+.detail-item a {
+  color: #64ffda;
+  text-decoration: none;
+}
+
+.detail-item.light-mode a { color: #2b6cb0; }
+
+.detail-item a:hover { text-decoration: underline; }
+
+.detail-item i {
+  font-size: 1rem;
+  color: #64ffda;
+  padding: 5px;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  margin-bottom: 3px;
+  background: transparent;
+}
+
+.detail-item:hover i {
+  transform: scale(1.1);
+}
+
+.detail-item.light-mode i {
+  color: #2b6cb0;
+}
+
+/* Social */
+.social-media-section {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.social-item {
+  background: #233554;
+  border-radius: 10px;
+  padding: 12px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #ccd6f6;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  min-height: 70px;
+}
+
+.social-item:hover {
+  transform: translateY(-3px);
+  background: #2d4a6f;
+}
+
+.social-item.light-mode {
+  background: #edf2f7;
+  color: #2d3748;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.social-item.light-mode:hover { background: #e2e8f0; }
+
+.social-item i {
+  font-size: 1.8rem;
+  color: #64ffda;
+  margin-bottom: 5px;
+  transition: all 0.3s ease;
+}
+
+.social-item.light-mode i { color: #2b6cb0; }
+
+.social-item:hover i {
+  transform: scale(1.1);
+}
+
+.social-item span {
+  font-size: 0.75rem;
+  text-align: center;
+  color: #64ffda;
+  font-weight: 500;
+}
+
+.social-item.light-mode span { color: #2b6cb0; }
+
+/* Button */
+.vcard-btn {
+  background: linear-gradient(135deg, #64ffda 0%, #233554 100%);
+  border: 1px solid #64ffda;
+  padding: 10px 20px;
+  border-radius: 25px;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 15px;
+  transition: all 0.3s ease;
+}
+
+.vcard-btn.light-mode {
+  background: linear-gradient(135deg, #2b6cb0 0%, #edf2f7 100%);
+  border-color: #2b6cb0;
+}
+
+.vcard-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
 }
